@@ -1,5 +1,5 @@
 {
-    "name": "your-name-here/AdminTheme",
+    "name": "falco442/cake-3-admin-theme",
     "description": "AdminTheme plugin for CakePHP",
     "type": "cakephp-plugin",
     "require": {
