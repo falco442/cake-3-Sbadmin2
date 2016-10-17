@@ -19,5 +19,6 @@
             "AdminTheme\\Test\\": "tests",
             "Cake\\Test\\": "./vendor/cakephp/cakephp/tests"
         }
-    }
+    },
+    "license": "MIT"
 }
