@@ -11,3 +11,23 @@ The recommended way to install composer packages is:
 ```
 composer require falco442/cake-3-admin-theme
 ```
+
+## Form helper
+
+Activate this theme's Form Helper by adding it in `src/View/AppView.php`
+
+```
+    public function initialize(){
+    	...
+        $this->loadHelper('AdminTheme.Form');
+        ...
+    }
+```
+
+## Bake
+
+This plugin includes a template for bake. You can bake your views using 
+
+```
+cd cake-root/bin && ./cake bake --theme=AdminTheme views
+```
