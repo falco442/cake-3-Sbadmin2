@@ -47,6 +47,7 @@ if (!empty($indexColumns)) {
                     <% foreach ($fields as $field): %>
                         <th><?= $this->Paginator->sort('<%= $field %>') ?></th>
                     <% endforeach; %>
+                        <th><?= __('Actions') ?></th>
                     </tr>
                 </thead>
 
@@ -82,9 +83,8 @@ if (!empty($indexColumns)) {
         $pk = '$' . $singularVar . '->' . $primaryKey[0];
 %>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['class'=>'btn btn-sm btn-default','action' => 'view', <%= $pk %>]) ?>
-                    <?= $this->Html->link(__('Edit'), ['class'=>'btn btn-sm btn-default','action' => 'edit', <%= $pk %>]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['class'=>'btn btn-sm btn-danger','action' => 'delete', <%= $pk %>], ['confirm' => __('Are you sure you want to delete # {0}?', <%= $pk %>)]) ?>
+                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', <%= $pk %>],['class'=>'btn btn-sm btn-default']) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', <%= $pk %>], ['confirm' => __('Are you sure you want to delete # {0}?', <%= $pk %>), 'class'=>'btn btn-sm btn-danger']) ?>
                 </td>
                     </tr>
                     <?php endforeach; ?>
