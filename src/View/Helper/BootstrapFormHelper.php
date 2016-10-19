@@ -21,7 +21,7 @@ class BootstrapFormHelper extends FormHelper{
 	        'formGroup' => '<div class="form-group">{{label}}{{input}}</div>',
 	        // 'hiddenBlock' => '<div style="display:none;">{{content}}</div>',
 	        'input' => '<input class="form-control" type="{{type}}" name="{{name}}"{{attrs}}/>',
-	        'inputSubmit' => '<input class="btn" type="{{type}}"{{attrs}}/>',
+	        'inputSubmit' => '<input class="btn btn-default {{class}}" type="{{type}}"{{attrs}}/>',
 	        'inputContainer' => '{{content}}',
 	        // 'inputContainerError' => '<div class="input {{type}}{{required}} error">{{content}}{{error}}</div>',
 	        // 'label' => '<label{{attrs}}>{{text}}</label>',

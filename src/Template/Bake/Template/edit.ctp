@@ -13,6 +13,4 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-echo "<div id=\"page-wrapper\">\n<div class=\"container-fluid\">\n\t<div class=\"row\">\n\t<div class=\"col-lg-12\">";
 echo $this->element('form');
-echo "</div>\n</div>\n\t</div>\n\t\t</div>";
