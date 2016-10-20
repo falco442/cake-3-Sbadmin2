@@ -12,6 +12,12 @@ The recommended way to install composer packages is:
 composer require falco442/cake-3-admin-theme
 ```
 
+then activate the plugin in `src/config/bootstrap.php`
+
+```
+Plugin::load('AdminTheme',['bootstrap'=>true]);
+```
+
 ## Form helper
 
 Activate this theme's Form Helper by adding it in `src/View/AppView.php`
@@ -20,6 +26,34 @@ Activate this theme's Form Helper by adding it in `src/View/AppView.php`
     public function initialize(){
     	...
         $this->loadHelper('AdminTheme.Form');
+        $this->loadHelper('AdminTheme.Sidebar',[
+            'sideLinks'=>[
+                [
+                    'label'=>'Users',
+                    'icon'=>'fa-user',
+                    'sons'=>[
+                        [
+                            'label'=>'List',
+                            'url'=>['controller'=>'users','action'=>'index'],
+                        ],
+                        [
+                            'label'=>'Add',
+                            'url'=>['controller'=>'users','action'=>'add'],
+                        ]
+                    ]
+                ],
+                [
+                    'label'=>'Stores',
+                    'icon'=>'fa-store',
+                    'sons'=>[
+                        [
+                            'url'=>['controller'=>'stores','action'=>'index'],
+                            'label'=>'List'
+                        ]
+                    ]
+                ]
+            ]
+        ]);
         ...
     }
 ```

@@ -236,18 +236,14 @@
                     <!-- /input-group -->
                 </li>
 
+                <?php 
+                	$links = $this->Sidebar->config('sideLinks');
+                	// debug($links);
 
-                <li>
-                    <a href="#"><i class="fa fa-users fa-fw"></i> Utenti<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="<?= $this->Url->build(['controller'=>'users','action'=>'index']); ?>" id="users-index">Lista</a>
-                        </li>
-
-                        <li><a href="<?= $this->Url->build(['controller'=>'users','action'=>'add']); ?>">Aggiungi</a></li>
-                    </ul>
-                    <!-- /.nav-second-level -->
-                </li>
+                	foreach($links as $link){
+                		echo $this->Sidebar->link($link['label'],$link['url'],$link['options'],$link['icon'],$link['sons']);
+                	}
+                ?>
 
 
                 <?php if(false): ?>
