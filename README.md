@@ -63,5 +63,11 @@ Activate this theme's Form Helper by adding it in `src/View/AppView.php`
 This plugin includes a template for bake. You can bake your views using 
 
 ```
-cd cake-root/bin && ./cake bake --theme=AdminTheme views
+cd cake-root/bin && ./cake bake views --theme=AdminTheme [ModelName]
+```
+
+or
+
+```
+cd cake-root/bin && ./cake bake all --theme=AdminTheme [ModelName]
 ```
