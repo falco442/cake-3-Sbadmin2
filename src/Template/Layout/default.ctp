@@ -16,12 +16,14 @@
 	<body>
 
 	    <div id="wrapper">
-
 	        <!-- Navigation -->
 			<?= $this->element('navbar'); ?>
 
 
-			<?= $this->fetch('content'); ?>
+	    	<div id="page-wrapper">
+	    		<?= $this->Flash->render() ?>
+				<?= $this->fetch('content'); ?>
+			</div>
 
 
 	    </div>
