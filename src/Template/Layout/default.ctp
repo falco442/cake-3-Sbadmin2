@@ -9,6 +9,7 @@
 	            '/vendor/font-awesome/css/font-awesome.min',
 		        '/vendor/datatables-plugins/dataTables.bootstrap',
 		        '/vendor/datatables-responsive/dataTables.responsive',
+		        'bootstrap-datepicker.min'
 	        ]); 
 		?>
 	</head>
@@ -39,10 +40,13 @@
 				'sb-admin-2.min',
 		        '/vendor/datatables/js/jquery.dataTables.min',
 		        '/vendor/datatables-plugins/dataTables.bootstrap.min',
-		        '/vendor/datatables-responsive/dataTables.responsive'
+		        '/vendor/datatables-responsive/dataTables.responsive',
+		        'bootstrap-datepicker.min'
 			]); 
 		?>
-
+		<script>
+		$('.datepicker').datepicker();
+		</script>
 		<?php echo $this->fetch('script'); ?>
 	</body>
 </html>

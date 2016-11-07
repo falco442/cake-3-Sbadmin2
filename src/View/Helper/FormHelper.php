@@ -7,28 +7,23 @@ use Cake\View\View;
 
 class FormHelper extends OldHelper{
 
+	protected $_defaultFormOptions = [
+		'class'=>'form-control',
+		'div'=>'form-group'
+	];
+
 	public function initialize(array $config){
 		parent::initialize($config);
+
+		// se ../config/app_form.php
 		$this->config('templates',[
 	        'button' => '<button class="btn" {{attrs}}>{{text}}</button>',
-	        // 'dateWidget' => '{{year}}{{month}}{{day}}{{hour}}{{minute}}{{second}}{{meridian}}',
-	        // 'error' => '<div class="error-message">{{content}}</div>',
-	        // 'errorList' => '<ul>{{content}}</ul>',
-	        // 'errorItem' => '<li>{{text}}</li>',
 	        'checkboxFormGroup' => '<div class="checkbox">{{label}}</div>',
 	        'checkboxWrapper' => '<div class="checkbox">{{label}}</div>',
 	        'file' => '<input class="form-control" type="file" name="{{name}}"{{attrs}}>',
 	        'formStart' => '<form role="form"{{attrs}}>',
 	        'formGroup' => '<div class="form-group">{{label}}{{input}}</div>',
-	        // 'hiddenBlock' => '<div style="display:none;">{{content}}</div>',
-	        'input' => '<input class="form-control" type="{{type}}" name="{{name}}"{{attrs}}/>',
-	        'inputSubmit' => '<input class="btn btn-default" type="{{type}}"{{attrs}}/>',
 	        'inputContainer' => '{{content}}',
-	        // 'inputContainerError' => '<div class="input {{type}}{{required}} error">{{content}}{{error}}</div>',
-	        // 'label' => '<label{{attrs}}>{{text}}</label>',
-	        // 'nestingLabel' => '{{hidden}}<label{{attrs}}>{{input}}{{text}}</label>',
-	        // 'multicheckboxTitle' => '<legend>{{text}}</legend>',
-	        // 'multicheckboxWrapper' => '<fieldset{{attrs}}>{{content}}</fieldset>',
 	        'select' => '<select class="form-control" name="{{name}}"{{attrs}}>{{content}}</select>',
 	        'selectMultiple' => '<select class="form-control" name="{{name}}[]" multiple="multiple"{{attrs}}>{{content}}</select>',
 	        'radio' => '<input type="radio" name="{{name}}" value="{{value}}"{{attrs}}>',
@@ -36,6 +31,15 @@ class FormHelper extends OldHelper{
 	        'textarea' => '<textarea class="form-control" name="{{name}}"{{attrs}}>{{value}}</textarea>',
 	        'submitContainer' => '<div class="form-group">{{content}}</div>',
 		]);
+	}
+
+	public function input( $fieldName , array $options = [] ){
+		$options = array_merge_recursive($this->_defaultFormOptions,$options);
+		if(isset($options['type']) && $options['type']=='date'){
+			$options['type'] = 'text';
+			$options['class'] .= ' datepicker';
+		}
+		return parent::input($fieldName,$options);
 	}
 
 	public function __construct(View $View, array $config = []){
